@@ -6,3 +6,7 @@ CMakeUserPresets.json
 venv
 graph_info.json
 conanbuildinfo.txt
+
+include/beauty/version.hpp
+*.o
+*.a
