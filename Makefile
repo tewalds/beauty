@@ -15,7 +15,7 @@ OBJS = src/acceptor.o \
        src/utils.o
 
 .cpp.o:
-	g++ -std=c++17 -Wall -O2 -c -o $@ $< -I./include
+	clang++ -std=c++17 -Wall -Wno-vla-extension -O2 -c -o $@ $< -I./include
 
 $(LIB): version.hpp $(OBJS)
 	ar -r $@ $(OBJS)
@@ -24,4 +24,5 @@ version.hpp:
 	VERSION=1.0.4 envsubst < src/version.hpp.in > ./include/beauty/version.hpp
 
 clean:
-	rm -f libeauty.a ./src/*.o ./include/beauty/version.hpp
+	rm -f libeauty.a ./src/*.o
+       # rm -f ./include/beauty/version.hpp
